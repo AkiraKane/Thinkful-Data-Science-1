@@ -1,17 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Aug 23 15:40:31 2015
+Created on Wed Aug 19 15:16:58 2015
 
 @author: Graham
 """
-
-
-"""Write a script called "stats.py" that prints the mean, median, mode, 
-range, variance, and standard deviation for the Alcohol and Tobacco 
-dataset with full text (ex. "The range for the Alcohol and 
-Tobacco dataset is ..."). Push the code to Github and enter the link below.
-"""
-
 
 import pandas as pd
 from scipy import stats
@@ -40,5 +32,39 @@ data_rows = data[1::] # these are all the following rows of data
 
 df = pd.DataFrame(data_rows, columns = column_names)
 
-print df
+#print df
 
+#############################
+
+df['Alcohol'] = df['Alcohol'].astype(float)
+df['Tobacco'] = df['Tobacco'].astype(float)
+
+Alc_Mean = df['Alcohol'].mean()
+Alc_Median = df['Alcohol'].median()
+Alc_Mode = stats.mode(df['Alcohol'])
+Alc_Range = max(df['Alcohol']) - min(df['Alcohol'])
+Alc_Std = df['Alcohol'].std() 
+Alc_Var = df['Alcohol'].var()
+
+Tob_Mean = df['Tobacco'].mean() 
+Tob_Median = df['Tobacco'].median() 
+Tob_Mode = stats.mode(df['Tobacco']) 
+Tob_Range = max(df['Tobacco']) - min(df['Tobacco'])
+Tob_Std = df['Tobacco'].std()
+Tob_Var = df['Tobacco'].var() 
+
+print '\n'
+print 'The mean for the Alcohol dataset is: %s' % Alc_Mean
+print 'The median is: %s' %  Alc_Median
+print Alc_Mode
+print 'The range is: %s' % Alc_Range
+print 'The standard deviation is: %s' % Alc_Std
+print 'The variance is: %s' %  Alc_Var
+
+print '\n' 
+print 'The mean for the Tobacco dataset is: %s' % Tob_Mean
+print 'The median is: %s' %  Tob_Median
+print Tob_Mode
+print 'The range is: %s' % Tob_Range
+print 'The standard deviation is: %s' % Tob_Std
+print 'The variance is: %s' %  Tob_Var

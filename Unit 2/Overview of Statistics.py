@@ -39,34 +39,32 @@ df = pd.DataFrame(data_rows, columns = column_names)
 df['Alcohol'] = df['Alcohol'].astype(float)
 df['Tobacco'] = df['Tobacco'].astype(float)
 
-df['Alcohol'].mean() 
-# 5.4436363636363634
-df['Alcohol'].median() 
-# 5.63
-# If all numbers occur equally often, stats.mode() will return the smallest number
-stats.mode(df['Alcohol']) 
-# 4.02
+Alc_Mean = df['Alcohol'].mean()
+Alc_Median = df['Alcohol'].median()
+Alc_Mode = stats.mode(df['Alcohol'])
+Alc_Range = max(df['Alcohol']) - min(df['Alcohol'])
+Alc_Std = df['Alcohol'].std() 
+Alc_Var = df['Alcohol'].var()
 
-df['Tobacco'].mean() 
-# 3.6181818181818186
-df['Tobacco'].median() 
-# 3.53
-stats.mode(df['Tobacco']) 
-# 2.71
+Tob_Mean = df['Tobacco'].mean() 
+Tob_Median = df['Tobacco'].median() 
+Tob_Mode = stats.mode(df['Tobacco']) 
+Tob_Range = max(df['Tobacco']) - min(df['Tobacco'])
+Tob_Std = df['Tobacco'].std()
+Tob_Var = df['Tobacco'].var() 
 
+print '\n'
+print 'The mean for the Alcohol dataset is: %s' % Alc_Mean
+print 'The median is: %s' %  Alc_Median
+print Alc_Mode
+print 'The range is: %s' % Alc_Range
+print 'The standard deviation is: %s' % Alc_Std
+print 'The variance is: %s' %  Alc_Var
 
-max(df['Alcohol']) - min(df['Alcohol'])
-# 2.4500000000000002
-df['Alcohol'].std() 
-# 0.79776278087252406
-df['Alcohol'].var() 
-# 0.63642545454546284
-
-max(df['Tobacco']) - min(df['Tobacco'])
-# 1.8499999999999996
-df['Tobacco'].std() 
-# 0.59070835751355388
-df['Tobacco'].var() 
-# 0.3489363636363606
-
-#########################
+print '\n' 
+print 'The mean for the Tobacco dataset is: %s' % Tob_Mean
+print 'The median is: %s' %  Tob_Median
+print Tob_Mode
+print 'The range is: %s' % Tob_Range
+print 'The standard deviation is: %s' % Tob_Std
+print 'The variance is: %s' %  Tob_Var
