@@ -68,3 +68,5 @@ print Tob_Mode
 print 'The range is: %s' % Tob_Range
 print 'The standard deviation is: %s' % Tob_Std
 print 'The variance is: %s' %  Tob_Var
+
+print "The mode of the alcohol and tobacco is %.2f %.2f" %(float(Alc_Mode[0]), float(Tob_Mode[0]))
